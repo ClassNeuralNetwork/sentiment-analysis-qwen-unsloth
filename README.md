@@ -11,6 +11,22 @@ O modelo ajustado resultante deste treinamento está publicado no Hugging Face:
 * Unsloth_Studio_Colab.ipynb: Notebook com o pipeline completo de preparação de dados, inicialização do Unsloth Studio e testes/avaliação.
 * imgs: Capturas de tela utilizadas no tutorial do notebook.
 
+## Bases de Dados Utilizadas
+
+Para o fine-tuning do modelo, foram utilizadas três fontes de dados diferentes para criar os conjuntos de treino, teste local e testes com dataset que possui outro padrão do que o modelo foi treinado. Abaixo estão as fontes e os links de onde cada dataset foi retirado:
+
+1. **Análise de Sentimentos PT-BR (Kaggle)**
+   - **Link:** [gazprom/anlise-de-sentimentos-pt-br](https://www.kaggle.com/datasets/gazprom/anlise-de-sentimentos-pt-br)
+   - **Descrição:** Dataset generalista em português adaptado de bases públicas.
+
+2. **Dataset Análise de Sentimentos Gemini (Kaggle)**
+   - **Link:** [rogesgrandi/dataset-para-anlise-de-sentimentos-gemini](https://www.kaggle.com/datasets/rogesgrandi/dataset-para-anlise-de-sentimentos-gemini)
+   - **Descrição:** Dataset sintético gerado via API do Gemini contendo sentenças curtas e sua classificação.
+
+3. **TweetSentBR Few-Shot (Hugging Face)**
+   - **Link:** [eduagarcia/tweetsentbr_fewshot](https://huggingface.co/datasets/eduagarcia/tweetsentbr_fewshot)
+   - **Descrição:** Dataset com dados reais do Twitter (X) focado em português. Ele não é usado no treino, mas sim importado diretamente na etapa de avaliação para testar a capacidade de generalização do modelo em um domínio diferente.
+
 ## Curadoria e Balanceamento dos Dados
 
 1. **Treino Balanceado (1.998 amostras)**: 999 amostras de cada base (gemini.csv e sentiment_analysis_pt_br.csv), divididas igualmente em 333 por classe (positivo, negativo, neutro) e formatadas no padrão ChatML.
